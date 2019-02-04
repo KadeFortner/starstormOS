@@ -1,80 +1,44 @@
-//
-//  OS.cpp
-//  starstormOS
-//
-//  Created by Kade Fortner on 1/28/19.
-//  Copyright © 2019 Kade Fortner. All rights reserved.
-//
 
 #include "OS.hpp"
 #include <cmath>
 #include <ctime>
+#include <locale>
 
 
 OS::OS(string user){
     this->user = user;
-    version = 3;
+    version = 4;
 }
 
 OS::OS(){
-    version = 3;
+    version = 4; //0.4, in reality. Will fix.
     user = "KadeTheMod";
 }
 
-/*
+//Prints current date and time.
 void OS::dateAndTime(){
     time_t t = time(NULL);
     tm* timePtr = localtime(&t);
     
     cout << "Date     " <<(timePtr->tm_mday)<<"/"<< (timePtr->tm_mon)+1 <<"/"<< (timePtr->tm_year)+1900<< endl;
     cout << "Time     " << (timePtr->tm_hour)<<":"<< (timePtr->tm_min)<<":"<< (timePtr->tm_sec) << endl;
+    //history.push_back("dateAndTime()");
 
 }
- */
 /*
-void OS::showDirectory(){
-    ofstream outfile ("directory.txt");
-    outfile << "test" << endl;
-    outfile.close();
-}
- */
-
 void OS::showHistory(){
-    
-    string inFileName = "historyIn.txt";
-    string outFileName = "historyIn.txt";
-    
-    
-    ifstream inData;
-    ofstream outData;
-    
-    
-    inData.open(inFileName.c_str());
-    outData.open(outFileName.c_str());
-    
-    
-    string line = "";
-    
-    
-    if(inData.is_open()){  //check to see if the file is open
-        if(outData.is_open()){
-            while( getline(inData, line)){
-                outData << line;
-                outData << '\n';
-            }
-        }
-        else{
-            cout << "Output File Error" << '\n';
-        }
+    //Referenced
+    history.push_back("showHistory()");
+    cout << "\nVector elements are: ";
+    for(int i = 0; i <= history.size(); i++){
+        cout << history.front() << endl;
     }
-    else{
-        cout << "Input File Not Found" << '\n';
-    }
-    
-    inData.close();
-    outData.close();
 }
+*/
 
+void OS::showDirectory(){
+    cout << "main.cpp\nos.cpp\nos.hpp\ndirectory.txt\nhistoryIn.txt\nhistoryOut.txt\nrefereferences.txt\n" << endl;
+}
 
 void OS::userManual(){
     cout << "starstormOS User Manual" << endl;
@@ -84,11 +48,56 @@ void OS::userManual(){
     cout << "4. Detailed Description of Each Command" << endl;
     cout << "5. Summary of Error Messages" << endl;
     cout << "6. Index" << endl;
+    //history.push_back("userManual()");
+}
+
+//Used for commands, Referenced.
+string toLowercase(string phrase){
+    std::string lowerPhrase = "";
+    std::locale loc;
+    std::string str=phrase;
+    //Only does one word for now. Must fix
+    for (std::string::size_type i=0; i<str.length(); ++i){
+        //std::cout << std::tolower(str[i],loc); For printing
+        lowerPhrase = lowerPhrase + std::tolower(str[i],loc);
+    }
+    return lowerPhrase;
 }
 
 void OS::userCommand(){
     string command;
-    cout << "Choose any command!: " << endl;
+    cout << "do something\n" << endl;
     cin >> command;
-    //Will take command, lowercase everything, then somehow make the program execute the command
+    //Changes the command to all lowercase so it can be compared
+    command = toLowercase(command);
+    if(command == "version"){
+        cout << "Version: " << getVersion() << "\n" << endl;
+    }
+    else if(command == "date"){
+        dateAndTime();
+    }
+    else if(command == "directory"){
+        cout << "Not made yet. oops\n" << endl;
+    }
+    else if(command == "history"){
+        cout << "History\n" << endl;
+    }
+    else if(command == "rename"){
+        cout << "Nope. tried to tell you.\n" << endl;
+    }
+    else if(command == "exit"){
+        cout << "bye" << endl;
+        exitOS();
+    }
+    else if(command == "help"){
+        helpMenu();
+    }
+    else{
+        cout << "do not understand\n" << endl;
+    }
+}
+
+void OS::helpMenu(){
+    cout << "Here's some commands to try out\nShow the version: try 'version'\nShow the date: try 'date'\nShow the contents of the directory: try 'directory'\nShow the history of commands: try 'history'\nHave a batch file?: try typing in the filename followed by the extention. This will not work though.\nChange or add command names: try 'rename'\nExit: try 'exit'\n" << endl;
+    //history.push_back("helpMenu()");
 }
