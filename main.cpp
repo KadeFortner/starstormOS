@@ -10,12 +10,18 @@
 #include "OS.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
+    
     cout << "Hello, World!\n" << endl;
     OS myOS;
-    cout << "Welcome to GAY FAG BOY OS YOU NIGGER LOL" << endl;
-    cout << "This is version: " << myOS.getVersion() << endl;
-    cout << "The user is: " << myOS.getUser() << endl;
-    myOS.dateAndTime();
+    while(myOS.exitCode() == 0){
+        cout << "Welcome to starstormOS" << endl;
+        cout << "This is version: " << myOS.getVersion() << endl;
+        cout << "The user is: " << myOS.getUser() << endl;
+        myOS.showHistory();
+        //myOS.userManual();
+        //myOS.userCommand();
+        myOS.exitOS();
+        
+    }
     return 0;
 }
