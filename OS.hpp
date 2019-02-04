@@ -1,10 +1,3 @@
-//
-//  OS.hpp
-//  starstormOS
-//
-//  Created by Kade Fortner on 1/28/19.
-//  Copyright © 2019 Kade Fortner. All rights reserved.
-//
 
 #ifndef OS_hpp
 #define OS_hpp
@@ -18,38 +11,55 @@
 
 using namespace std;
 
-//time_t t = time(NULL);
-//tm* timePtr = localtime(&t);
 
 class OS{
-private:
-    int version;
-    string user;
-    int exit = 0;
-    /*
-    static vector<string> history;
-    int day = timePtr->tm_mday;
-    int month = timePtr->tm_year;
-    int year = (timePtr->tm_mon)+1900;
-    int hour = timePtr->tm_hour;
-    int min = timePtr->tm_min;
-    int sec = timePtr->tm_sec;
-    */
     
-public:
-    OS();
-    OS(string user);
-    int getVersion(){return version;}
-    string getUser(){return user;}
-    //void dateAndTime();
-    //void showDirectory();
-    void showHistory();
-    void userManual();
-    //exitCode will be used to end the OS if the user wishes to quit the program.
-    int exitCode(){return exit;}
-    void exitOS(){exit = 1;}
-    //This will take the typed in command of the user, and execute it
-    void userCommand();
+    static vector<string> history;
+    
+    private:
+        int version;
+        string user;
+        int exit = 0;
+    
+    public:
+    
+        //Constuctors
+        OS();
+        OS(string user);
+    
+        //Getters
+        int getVersion(){return version;}
+        string getUser(){return user;}
+    
+        //Setters
+        void setVerstion(int version){this->version = version;}
+        void setUser(string user){this->user = user;}
+    
+        //Shows current date and time
+        //Works. Cannot set though. Want to have date and time as attributes
+        void dateAndTime();
+    
+        //Shows Directory
+        //Not currently programmed. Bug with reading files in the directory
+        void showDirectory();
+    
+        //Shows the history. Does not currently work. Having trouble inplementing a vector
+        void showHistory();
+    
+        //Prints the user manual.
+        //Works
+        void userManual();
+    
+        //Uses this for an exit condition.
+    
+        int exitCode(){return exit;}
+        void exitOS(){exit = 1;}
+    
+        //Takes an input, and if able, executes corresponding command.
+        void userCommand();
+    
+        //Prints list of commands
+        void helpMenu();
 };
 
 #endif /* OS_hpp */
