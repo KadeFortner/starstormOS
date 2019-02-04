@@ -11,17 +11,9 @@
 
 int main(int argc, const char * argv[]) {
     
-    cout << "Hello, World!\n" << endl;
     OS myOS;
     while(myOS.exitCode() == 0){
-        cout << "Welcome to starstormOS" << endl;
-        cout << "This is version: " << myOS.getVersion() << endl;
-        cout << "The user is: " << myOS.getUser() << endl;
-        myOS.showHistory();
-        //myOS.userManual();
-        //myOS.userCommand();
-        myOS.exitOS();
-        
+        myOS.userCommand();
     }
     return 0;
 }
