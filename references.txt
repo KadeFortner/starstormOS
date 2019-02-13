@@ -1,0 +1,4 @@
+References:
+http://www.cplusplus.com/reference/locale/tolower/
+https://www.geeksforgeeks.org/vector-in-cpp-stl/
+https://stackoverflow.com/questions/997946/how-to-get-current-time-and-date-in-c
