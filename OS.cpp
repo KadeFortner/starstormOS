@@ -14,11 +14,11 @@
 
 OS::OS(string user){
     this->user = user;
-    version = 0.7;
+    version = 0.8;
 }
 
 OS::OS(){
-    version = 0.7;
+    version = 0.8;
     user = "KadeTheMod";
 }
 
