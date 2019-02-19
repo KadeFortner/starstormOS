@@ -8,22 +8,15 @@
 
 #include "ram.hpp"
 
-ram::ram(){
+RAM::RAM(){
     cout << "The RAM has 30 spots available" << endl;
-    ramMemory[0] = "ax";
-    ramMemory[1] = "bx";
-    ramMemory[2] = "cx";
-    ramMemory[3] = "dx";
-    ramMemory[4] = "PC";
-    ramMemory[5] = "A";
 }
 
-string ram::lookAt(int location){
-    return ramMemory[location];
+string RAM::lookAt(int location){
+    return RAMmemory[location];
 }
 
-void ram::assignRam(string item, int location){
-    ramMemory[location] = item;
+void RAM::assignRAM(string item, int location){
+    RAMmemory[location] = item;
     cout << "The item has been inserted into the RAM successfully" << endl;
 }
-
