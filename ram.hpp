@@ -17,13 +17,18 @@ using namespace std;
 class RAM{
     
     private:
-    string RAMmemory[30];
+    string RAMmemory[1000];
+    int freeSlots[1000];
+    int takenSlots[1000];
     
     
     public:
     RAM();
     string lookAt(int location);
     void assignRAM(string item, int location);
+    void numOfFreeSlots();
+    void numOfTakenSlots();
+    void showTakenSlots();
 };
 
 
