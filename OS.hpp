@@ -39,7 +39,7 @@ class OS{
         string getUser(){return user;}
     
         //Setters
-        void setVerstion(double version){this->version = version;}
+        void setVersion(double version){this->version = version;}
         void setUser(string user){this->user = user;}
     
         //Shows current date and time
@@ -61,12 +61,16 @@ class OS{
     
         int exitCode(){return exit;}
         void exitOS(){exit = 1;}
+        void startOS();
     
         //Takes an input, and if able, executes corresponding command.
         void userCommand();
     
         //Prints list of commands
         void helpMenu();
+    
+        //Ends a program
+        void endProgram();
 };
 
 #endif /* OS_hpp */
