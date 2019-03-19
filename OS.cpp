@@ -14,12 +14,14 @@
 
 OS::OS(string user){
     this->user = user;
-    version = 0.8;
+    version = 0.91;
 }
 
 OS::OS(){
-    version = 0.8;
+    version = 0.91; //With Machine class, and 1000 Ram slots
     user = "KadeTheMod";
+    startOS();
+    userCommand();
 }
 
 //Prints current date and time.
@@ -91,10 +93,10 @@ void OS::userCommand(){
         cout << "History\n" << endl;
     }
     else if(command == "rename"){
-        cout << "Nope. tried to tell you.\n" << endl;
+        cout << "Nope.\n" << endl;
     }
     else if(command == "exit"){
-        cout << "bye" << endl;
+        cout << "bye\n" << endl;
         exitOS();
     }
     else if(command == "help"){
@@ -111,4 +113,15 @@ void OS::userCommand(){
 void OS::helpMenu(){
     cout << "Here's some commands to try out\nShow the version: try 'version'\nShow the date: try 'date'\nShow the contents of the directory: try 'directory'\nShow the history of commands: try 'history'\nHave a batch file?: try typing in the filename followed by the extention. This will not work though.\nChange or add command names: try 'rename'\nExit: try 'exit'\n" << endl;
     //history.push_back("helpMenu()");
+}
+
+void OS::endProgram(){
+    exitOS();
+    startOS();
+    userManual();
+}
+
+void OS::startOS(){
+    exit = 0;
+    cout << "Welcome to PKstarstormOS!" << endl;
 }
