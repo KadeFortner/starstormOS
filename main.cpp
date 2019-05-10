@@ -7,26 +7,39 @@
 //
 
 #include <iostream>
+#include <thread>
 #include "OS.hpp"
 #include "ram.hpp"
 #include "CPU.hpp"
 #include "Machine.hpp"
+#include "PCB.hpp"
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
+{
     
-    RAM myRAM;
+    CPU myCPU;
     
-    myRAM.assignRAM("test", 0);
-    myRAM.assignRAM("test2", 1);
-    myRAM.assignRAM("test3", 10);
-    cout << myRAM.lookAt(0) << endl;
-    cout << myRAM.lookAt(1) << endl;
-    //cout << myRAM.lookAt(11) << endl;
-    //cout << myRAM.lookAt(10) << endl;
-    myRAM.numOfTakenSlots();
-    myRAM.showTakenSlots();
+    myCPU.setA(5);
+    myCPU.setPC(12);
+    myCPU.setAX(14);
+    myCPU.setBX(92);
+    myCPU.setCX(1);
+    myCPU.setDX(209);
     
+    cout << myCPU.getAX() << endl;
+    cout << myCPU.getPC() << endl;
+    cout << myCPU.getDX() << endl;
+    cout << myCPU.getBX() << endl;
+
+    
+    
+    myCPU.add("ax", "PC");
+    myCPU.sub("bx", "dx");
+    
+    cout << myCPU.getAX() << endl;
+    cout << myCPU.getPC()<< endl;
+    cout << myCPU.getDX() << endl;
+    cout << myCPU.getBX() << endl;
     
     return 0;
 }
-
