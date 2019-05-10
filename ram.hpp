@@ -14,21 +14,21 @@
 
 using namespace std;
 
-class RAM{
+class RAM
+{
     
     private:
     string RAMmemory[1000];
-    int freeSlots[1000];
-    int takenSlots[1000];
+    int takenMemory[1000] = {0};
+    
     
     
     public:
     RAM();
     string lookAt(int location);
     void assignRAM(string item, int location);
-    void numOfFreeSlots();
+    int lookAtTakenSlot(int location){return takenMemory[location];}
     void numOfTakenSlots();
-    void showTakenSlots();
 };
 
 
